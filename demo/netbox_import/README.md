@@ -40,6 +40,7 @@ floorplans.py             # creates the two Visual Explorer floor plans (see bel
 ndx_import.py             # aligns device types with the NDX catalog and imports them
 verify_netbox.py          # read-only: compares NetBox with the CSVs
 cleanup_netbox.py         # deletes objects that are not in the planned data
+teardown_netbox.py        # deletes every object the demo added (dry run by default)
 ```
 
 The numeric prefixes are the **import order** — each file depends only on
@@ -198,3 +199,11 @@ plugin API is unreachable. The `bgp-peer` IP tags and custom fields stay as they
 devices, interfaces, VLANs, prefixes, IPs, circuits, ASNs, power, and every cable) and prints
 what is missing, extra or different. `cleanup_netbox.py` removes extra top-level objects.
 `ndx_import.py` aligns the device types with the NDX catalog (`--status` shows the components).
+
+## Tearing the demo down
+
+`teardown_netbox.py` is the opposite of `cleanup_netbox.py`: it deletes the objects that ARE in the
+CSVs (plus the two floor plans), in dependency order. Dry run by default; deleting needs `--go` and
+`--confirm N` with the count the dry run printed. `--include shared` also removes the device types
+(including the NDX-imported ones), manufacturers, roles, circuit types, RIR, tags and custom
+fields; NetBox refuses to delete any that other data still uses. Use it only on the demo instance.
