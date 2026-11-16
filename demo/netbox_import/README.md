@@ -28,13 +28,18 @@ csv/
   02_device_types.csv     09_prefixes.csv
   05a_rack_types.csv      (rack types, NetBox 4.3+; loaded before 06_racks)
   12a_tags .. 20_wan_ip_addresses.csv   WAN / BGP (see below)
+  21_power_panels .. 25_power_cables.csv   power (see below)
+  26_bgp_sessions.csv     eBGP sessions; needs the netbox-bgp plugin, skipped without it
   03_device_roles.csv     10_interfaces.csv
   04_sites.csv            11_ip_addresses.csv
   05_locations.csv        12_cables.csv
   06_racks.csv
   07_devices.csv
 load_netbox.py            # pushes the CSVs via the REST API, idempotently
-floorplans.py             # creates the two empty Floorplan-plugin plans (see below)
+floorplans.py             # creates the two Visual Explorer floor plans (see below)
+ndx_import.py             # aligns device types with the NDX catalog and imports them
+verify_netbox.py          # read-only: compares NetBox with the CSVs
+cleanup_netbox.py         # deletes objects that are not in the planned data
 ```
 
 The numeric prefixes are the **import order** — each file depends only on

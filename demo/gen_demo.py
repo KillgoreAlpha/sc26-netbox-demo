@@ -22,7 +22,7 @@ from openpyxl.styles import Font, PatternFill
 
 from rcc_model import (D, SURPLUS, RACKS, PLACE, IPPLAN, ib_hosts,
                        RACK_IB_LEAF, eth_rows, ib_rows, con_rows, pwr_rows,
-                       CIRCUITS, PROVIDERS, LOCAL_ASN, ANNOUNCED)
+                       CIRCUITS, PROVIDERS, LOCAL_ASN, ANNOUNCED, FEEDS, PDUS, POWER_PANELS)
 
 random.seed(1975)  # deterministic output
 
