@@ -1,0 +1,5 @@
+cid,term_side,device,interface,type,status,label,color,length,length_unit
+WRRN-MDC-10G-0417,A,mdc-border-fw01,eth2,smf,connected,WRRN-MDC-10G-0417 handoff,ffeb3b,3,m
+CFN-MDC-10G-0392,A,mdc-border-fw02,eth2,smf,connected,CFN-MDC-10G-0392 handoff,ffeb3b,3,m
+WRRN-WRDC-100G-0733,A,wr-core-sw01,Et51,smf,connected,WRRN-WRDC-100G-0733 handoff,ffeb3b,3,m
+LTN-WRDC-10G-1180,A,wr-core-sw02,Et16,smf,connected,LTN-WRDC-10G-1180 handoff,ffeb3b,3,m

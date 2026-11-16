@@ -1,0 +1,8 @@
+site,location,name,status,width,u_height,rack_type
+Marston Data Center,Marston Machine Room,MDC-A1,active,19,42,Generic 42U 19in Cabinet
+Marston Data Center,Marston Machine Room,MDC-A2,active,19,42,Generic 42U 19in Cabinet
+Marston Data Center,Marston Machine Room,MDC-B1,active,19,42,Generic 42U 19in Cabinet
+West Ridge Data Center,West Ridge Data Hall,WRDC-H1,active,19,48,Generic 48U 19in Cabinet
+West Ridge Data Center,West Ridge Data Hall,WRDC-H2,active,19,48,Generic 48U 19in Cabinet
+West Ridge Data Center,West Ridge Data Hall,WRDC-H3,active,19,48,Generic 48U 19in Cabinet
+West Ridge Data Center,West Ridge Data Hall,WRDC-H4,active,19,48,Generic 48U 19in Cabinet

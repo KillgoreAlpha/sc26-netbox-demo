@@ -1,0 +1,6 @@
+cid,provider,type,status,commit_rate_kbps,install_date,tags,description
+WRRN-MDC-10G-0417,Western Regional Research Network,R&E Network,active,10000000,2022-03-14,wan;r-and-e;bgp-peer,"Primary R&E uplink, Internet2 via WRRN"
+CFN-MDC-10G-0392,Cascade Fiber Networks,Internet Transit,active,10000000,2021-09-30,wan;transit;bgp-peer,Commodity Internet transit
+WRRN-WRDC-100G-0733,Western Regional Research Network,R&E Network,active,100000000,2023-06-02,wan;r-and-e;bgp-peer,"HPC R&E uplink, Science DMZ path"
+LTN-WRDC-10G-1180,Lakeshore Telecom,Internet Transit,active,10000000,2023-06-20,wan;transit;backup;bgp-peer,"Backup transit, 5G CIR"
+WRRN-WRDC-100G-0734,Western Regional Research Network,R&E Network,planned,100000000,,wan;r-and-e,"Second diverse 100G R&E path, install FY26"

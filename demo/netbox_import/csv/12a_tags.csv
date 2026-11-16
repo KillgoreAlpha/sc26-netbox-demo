@@ -1,0 +1,6 @@
+name,slug,color
+WAN,wan,9c27b0
+BGP peer,bgp-peer,2196f3
+R&E,r-and-e,3f51b5
+Transit,transit,ff9800
+Backup,backup,9e9e9e

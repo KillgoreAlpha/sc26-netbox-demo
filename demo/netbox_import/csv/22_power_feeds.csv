@@ -1,0 +1,15 @@
+panel,name,site,rack,status,type,supply,phase,voltage,amperage,max_utilization
+MDC-PNL-A,MDC-A1-FEED-A,Marston Data Center,MDC-A1,active,primary,ac,single-phase,208,30,80
+MDC-PNL-B,MDC-A1-FEED-B,Marston Data Center,MDC-A1,active,redundant,ac,single-phase,208,30,80
+MDC-PNL-A,MDC-A2-FEED-A,Marston Data Center,MDC-A2,active,primary,ac,single-phase,208,30,80
+MDC-PNL-B,MDC-A2-FEED-B,Marston Data Center,MDC-A2,active,redundant,ac,single-phase,208,30,80
+MDC-PNL-A,MDC-B1-FEED-A,Marston Data Center,MDC-B1,active,primary,ac,single-phase,208,30,80
+MDC-PNL-B,MDC-B1-FEED-B,Marston Data Center,MDC-B1,active,redundant,ac,single-phase,208,30,80
+WRDC-PNL-A,WRDC-H1-FEED-A,West Ridge Data Center,WRDC-H1,active,primary,ac,single-phase,208,30,80
+WRDC-PNL-B,WRDC-H1-FEED-B,West Ridge Data Center,WRDC-H1,active,redundant,ac,single-phase,208,30,80
+WRDC-PNL-A,WRDC-H2-FEED-A,West Ridge Data Center,WRDC-H2,active,primary,ac,single-phase,208,30,80
+WRDC-PNL-B,WRDC-H2-FEED-B,West Ridge Data Center,WRDC-H2,active,redundant,ac,single-phase,208,30,80
+WRDC-PNL-A,WRDC-H3-FEED-A,West Ridge Data Center,WRDC-H3,active,primary,ac,three-phase,208,60,80
+WRDC-PNL-B,WRDC-H3-FEED-B,West Ridge Data Center,WRDC-H3,active,redundant,ac,three-phase,208,60,80
+WRDC-PNL-A,WRDC-H4-FEED-A,West Ridge Data Center,WRDC-H4,active,primary,ac,single-phase,208,30,80
+WRDC-PNL-B,WRDC-H4-FEED-B,West Ridge Data Center,WRDC-H4,active,redundant,ac,single-phase,208,30,80

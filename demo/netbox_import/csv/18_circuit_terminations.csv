@@ -1,0 +1,11 @@
+cid,term_side,termination_type,termination,port_speed_kbps,xconnect_id,description
+WRRN-MDC-10G-0417,A,dcim.site,Marston Data Center,10000000,MMR-04-17,Marston Data Center demarc
+WRRN-MDC-10G-0417,Z,circuits.providernetwork,WRRN backbone,10000000,,
+CFN-MDC-10G-0392,A,dcim.site,Marston Data Center,10000000,MMR-04-22,Marston Data Center demarc
+CFN-MDC-10G-0392,Z,circuits.providernetwork,CFN backbone,10000000,,
+WRRN-WRDC-100G-0733,A,dcim.site,West Ridge Data Center,100000000,WRDH-A-11,West Ridge Data Center demarc
+WRRN-WRDC-100G-0733,Z,circuits.providernetwork,WRRN backbone,100000000,,
+LTN-WRDC-10G-1180,A,dcim.site,West Ridge Data Center,10000000,WRDH-A-14,West Ridge Data Center demarc
+LTN-WRDC-10G-1180,Z,circuits.providernetwork,LTN backbone,10000000,,
+WRRN-WRDC-100G-0734,A,dcim.site,West Ridge Data Center,100000000,,West Ridge Data Center demarc
+WRRN-WRDC-100G-0734,Z,circuits.providernetwork,WRRN backbone,100000000,,

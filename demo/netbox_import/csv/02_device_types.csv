@@ -1,0 +1,19 @@
+manufacturer,model,slug,u_height,is_full_depth
+Arista,DCS-7050SX3-48YC8-F,arista-dcs-7050sx3-48yc8-f,1,false
+Arista,DCS-7280SR3-48YC8-F,arista-dcs-7280sr3-48yc8-f,1,false
+Cisco,Catalyst 2960-48TT-L,cisco-ws-c2960-48tt-l,1,false
+Dell,PowerConnect N2048,dell-powerswitch-n2048,1,false
+Dell,PowerEdge C6420,dell-poweredge-c6420,1,true
+Dell,PowerEdge R640,dell-poweredge-r640,1,true
+Dell,PowerEdge R650,dell-poweredge-r650,1,true
+Dell,PowerEdge R6525,dell-poweredge-r6525,1,true
+Dell,PowerEdge R740,dell-poweredge-r740,2,true
+Dell,PowerEdge R740xd,dell-poweredge-r740xd,2,true
+Dell,PowerEdge XE8640,dell-poweredge-xe8640,4,true
+Dell,PowerVault ME4024,dell-powervault-me4024,2,true
+Hitachi,HNAS 4060,hitachi-hnas-4060,3,true
+NVIDIA,QM8700 (HDR200),nvidia-qm8700,1,false
+Palo Alto Networks,PA-3260,palo-alto-networks-pa-3260,2,true
+Supermicro,GPU SuperServer SYS-422GA-NRT,supermicro-sys-422ga-nrt,4,true
+Supermicro,SuperServer 6018R-MT,supermicro-sys-6018r-mt,1,true
+Generic,Rack PDU 0U 24xC13 6xC19,generic-rack-pdu-0u-24xc13-6xc19,0,false

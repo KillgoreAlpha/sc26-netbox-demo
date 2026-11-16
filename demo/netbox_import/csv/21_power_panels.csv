@@ -1,0 +1,5 @@
+site,location,name,description
+Marston Data Center,Marston Machine Room,MDC-PNL-A,Marston B1 UPS-A distribution
+Marston Data Center,Marston Machine Room,MDC-PNL-B,Marston B1 UPS-B distribution
+West Ridge Data Center,West Ridge Data Hall,WRDC-PNL-A,West Ridge hall panel A (generator-backed)
+West Ridge Data Center,West Ridge Data Hall,WRDC-PNL-B,West Ridge hall panel B (generator-backed)

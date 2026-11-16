@@ -1,0 +1,9 @@
+address,status,dns_name,description,device,interface,tags,bgp_peer_asn,bgp_local_asn
+198.51.100.1/31,active,,"BGP local, WRRN-MDC-10G-0417",mdc-border-fw01,eth2,wan;r-and-e;bgp-peer,64501,64500
+198.51.100.0/31,active,,"BGP peer WRRN AS64501 (R&E), WRRN-MDC-10G-0417",,,wan;r-and-e;bgp-peer,64501,64500
+203.0.113.1/31,active,,"BGP local, CFN-MDC-10G-0392",mdc-border-fw02,eth2,wan;transit;bgp-peer,64502,64500
+203.0.113.0/31,active,,"BGP peer CFN AS64502 (transit), CFN-MDC-10G-0392",,,wan;transit;bgp-peer,64502,64500
+198.51.100.3/31,active,,"BGP local, WRRN-WRDC-100G-0733",wr-core-sw01,Et51,wan;r-and-e;bgp-peer,64501,64500
+198.51.100.2/31,active,,"BGP peer WRRN AS64501 (R&E), WRRN-WRDC-100G-0733",,,wan;r-and-e;bgp-peer,64501,64500
+203.0.113.3/31,active,,"BGP local, LTN-WRDC-10G-1180",wr-core-sw02,Et16,wan;transit;backup;bgp-peer,64503,64500
+203.0.113.2/31,active,,"BGP peer LTN AS64503 (transit), LTN-WRDC-10G-1180",,,wan;transit;backup;bgp-peer,64503,64500

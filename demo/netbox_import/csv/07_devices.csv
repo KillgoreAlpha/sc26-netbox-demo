@@ -1,0 +1,58 @@
+name,device_type,role,site,location,rack,position,face,status,description
+mdc-border-fw01,PA-3260,Firewall,Marston Data Center,Marston Machine Room,MDC-A1,41,front,active,
+mdc-border-fw02,PA-3260,Firewall,Marston Data Center,Marston Machine Room,MDC-A1,39,front,active,
+mdc-core-sw01,DCS-7050SX3-48YC8-F,Core Switch,Marston Data Center,Marston Machine Room,MDC-A1,38,front,active,
+mdc-core-sw02,DCS-7050SX3-48YC8-F,Core Switch,Marston Data Center,Marston Machine Room,MDC-A1,37,front,active,
+mdc-oob-sw01,Catalyst 2960-48TT-L,OOB/Console Switch,Marston Data Center,Marston Machine Room,MDC-A1,36,front,active,
+mdc-dns01,PowerEdge R640,DNS/DHCP,Marston Data Center,Marston Machine Room,MDC-A1,34,front,active,
+mdc-dns02,PowerEdge R640,DNS/DHCP,Marston Data Center,Marston Machine Room,MDC-A1,33,front,active,
+mdc-vmhost-01,PowerEdge R740,VM Hypervisor,Marston Data Center,Marston Machine Room,MDC-A2,41,front,active,
+mdc-vmhost-02,PowerEdge R740,VM Hypervisor,Marston Data Center,Marston Machine Room,MDC-A2,39,front,active,
+mdc-vmhost-03,PowerEdge R740,VM Hypervisor,Marston Data Center,Marston Machine Room,MDC-A2,37,front,decommissioning,
+mdc-vmhost-04,PowerEdge R740,VM Hypervisor,Marston Data Center,Marston Machine Room,MDC-A2,35,front,active,
+mdc-vmstor01,PowerVault ME4024,SAN/Disk Array,Marston Data Center,Marston Machine Room,MDC-A2,33,front,active,
+mdc-backup01,PowerEdge R740xd,Backup Server,Marston Data Center,Marston Machine Room,MDC-A2,31,front,active,
+hpcstor2,HNAS 4060,Legacy NAS,Marston Data Center,Marston Machine Room,MDC-A2,22,front,active,
+mdc-globus-dtn-legacy,SuperServer 6018R-MT,Data Transfer Node,Marston Data Center,Marston Machine Room,MDC-B1,42,front,active,
+wr-core-sw01,DCS-7280SR3-48YC8-F,Core Switch,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,48,front,active,
+wr-core-sw02,DCS-7280SR3-48YC8-F,Core Switch,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,47,front,active,
+wr-mgmt-sw01,PowerConnect N2048,Mgmt Switch,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,46,front,active,
+wr-mgmt-sw02,PowerConnect N2048,Mgmt Switch,West Ridge Data Center,West Ridge Data Hall,WRDC-H2,48,front,active,
+wr-mgmt-sw03,PowerConnect N2048,Mgmt Switch,West Ridge Data Center,West Ridge Data Hall,WRDC-H3,48,front,active,
+wr-mgmt-sw04,PowerConnect N2048,Mgmt Switch,West Ridge Data Center,West Ridge Data Hall,WRDC-H4,48,front,active,
+wr-ib-spine01,QM8700 (HDR200),InfiniBand Spine,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,45,front,active,
+wr-ib-spine02,QM8700 (HDR200),InfiniBand Spine,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,44,front,active,
+wr-ib-leaf01,QM8700 (HDR200),InfiniBand Leaf,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,43,front,active,
+wr-ib-leaf02,QM8700 (HDR200),InfiniBand Leaf,West Ridge Data Center,West Ridge Data Hall,WRDC-H2,47,front,active,
+wr-ib-leaf03,QM8700 (HDR200),InfiniBand Leaf,West Ridge Data Center,West Ridge Data Hall,WRDC-H3,47,front,active,
+wr-ib-leaf04,QM8700 (HDR200),InfiniBand Leaf,West Ridge Data Center,West Ridge Data Hall,WRDC-H4,47,front,active,
+wr-login-01,PowerEdge R650,Login Node,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,41,front,active,
+wr-login-02,PowerEdge R650,Login Node,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,40,front,active,
+wr-slurm-01,PowerEdge R640,Scheduler,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,39,front,active,
+wr-slurm-02,PowerEdge R640,Scheduler,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,38,front,active,
+wr-lustre-mds01,PowerEdge R740,Lustre MDS,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,36,front,active,
+wr-lustre-mds02,PowerEdge R740,Lustre MDS,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,34,front,active,
+wr-lustre-oss01,PowerEdge R740xd,Lustre OSS,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,32,front,active,
+wr-lustre-oss02,PowerEdge R740xd,Lustre OSS,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,30,front,active,
+wr-lustre-oss03,PowerEdge R740xd,Lustre OSS,West Ridge Data Center,West Ridge Data Hall,WRDC-H2,19,front,active,
+wr-lustre-oss04,PowerEdge R740xd,Lustre OSS,West Ridge Data Center,West Ridge Data Hall,WRDC-H2,17,front,active,
+wr-cn-001,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,46,front,active,fund: NSF-OAC-1929001
+wr-cn-002,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,45,front,active,fund: NSF-OAC-1929001
+wr-cn-003,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,44,front,active,fund: NSF-OAC-1929001
+wr-cn-004,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,43,front,active,fund: NSF-OAC-1929001
+wr-cn-005,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,42,front,active,fund: NSF-OAC-1929001
+wr-cn-006,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,41,front,active,fund: NSF-OAC-1929001
+wr-cn-007,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,40,front,active,fund: NSF-OAC-1929001
+wr-cn-008,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,39,front,active,fund: NSF-OAC-1929001
+wr-cn-009,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,38,front,active,fund: NSF-OAC-1929001
+wr-cn-010,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,37,front,active,fund: NSF-OAC-1929001
+wr-cn-011,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,36,front,active,fund: NSF-OAC-1929001
+wr-cn-012,PowerEdge C6420,Compute Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H2,35,front,active,fund: NSF-OAC-1929001
+wr-gpu-001,PowerEdge XE8640,Compute Node (GPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H3,42,front,active,fund: NSF-MRI-2018551
+wr-gpu-002,PowerEdge XE8640,Compute Node (GPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H3,38,front,active,fund: NSF-MRI-2018551
+wr-gpu-003,PowerEdge XE8640,Compute Node (GPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H3,34,front,active,fund: NSF-MRI-2018551
+wr-gpu-004,PowerEdge XE8640,Compute Node (GPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H4,37,front,active,fund: NSF-MRI-2018551
+wr-dtn-01,PowerEdge R650,Data Transfer Node,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,29,front,active,
+chem-gpu-01,GPU SuperServer SYS-422GA-NRT,Condo Node (GPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H3,6,front,active,owner: Dr. Rekha Alvarez
+dr-patel-node01,PowerEdge R6525,Condo Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H4,46,front,active,owner: Dr. Amit Patel
+dr-patel-node02,PowerEdge R6525,Condo Node (CPU),West Ridge Data Center,West Ridge Data Hall,WRDC-H4,45,front,active,owner: Dr. Amit Patel

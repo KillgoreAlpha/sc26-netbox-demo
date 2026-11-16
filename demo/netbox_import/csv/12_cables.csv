@@ -1,0 +1,119 @@
+side_a_device,side_a_type,side_a_name,side_b_device,side_b_type,side_b_name,type,status,label,color,length,length_unit
+mdc-border-fw01,dcim.interface,eth1,mdc-core-sw01,dcim.interface,Et1,dac-passive,connected,mdc-border-fw01 <-> core,000000,1,m
+mdc-border-fw02,dcim.interface,eth1,mdc-core-sw01,dcim.interface,Et2,dac-passive,connected,mdc-border-fw02 <-> core,000000,1,m
+mdc-core-sw01,dcim.interface,Et49,mdc-core-sw02,dcim.interface,Et49,dac-passive,connected,MLAG peer-link,2196f3,0.5,m
+mdc-core-sw01,dcim.interface,Et50,mdc-core-sw02,dcim.interface,Et50,dac-passive,connected,MLAG peer-link,2196f3,0.5,m
+mdc-oob-sw01,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et3,cat6,connected,data,607d8b,2,m
+mdc-dns01,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et4,cat6,connected,data,607d8b,2,m
+mdc-dns01,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et1,cat6,connected,iDRAC,4caf50,2,m
+mdc-dns02,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et5,cat6,connected,data,607d8b,2,m
+mdc-dns02,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et2,cat6,connected,iDRAC,4caf50,2,m
+mdc-vmhost-01,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et6,dac-passive,connected,data,607d8b,2,m
+mdc-vmhost-01,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et3,cat6,connected,iDRAC,4caf50,2,m
+mdc-vmhost-02,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et7,dac-passive,connected,data,607d8b,2,m
+mdc-vmhost-02,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et4,cat6,connected,iDRAC,4caf50,2,m
+mdc-vmhost-03,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et8,dac-passive,connected,data,607d8b,2,m
+mdc-vmhost-03,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et5,cat6,connected,iDRAC,4caf50,2,m
+mdc-vmhost-04,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et9,dac-passive,connected,data,607d8b,2,m
+mdc-vmhost-04,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et6,cat6,connected,iDRAC,4caf50,2,m
+mdc-vmstor01,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et10,dac-passive,connected,data,607d8b,2,m
+mdc-vmstor01,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et7,cat6,connected,iDRAC,4caf50,2,m
+mdc-backup01,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et11,dac-passive,connected,data,607d8b,2,m
+mdc-backup01,dcim.interface,iDRAC,mdc-oob-sw01,dcim.interface,Et8,cat6,connected,iDRAC,4caf50,2,m
+hpcstor2,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et12,dac-passive,connected,data,607d8b,2,m
+mdc-globus-dtn-legacy,dcim.interface,eno1,mdc-core-sw01,dcim.interface,Et13,cat6,connected,data,607d8b,2,m
+wr-core-sw01,dcim.interface,Et49,wr-core-sw02,dcim.interface,Et49,dac-passive,connected,MLAG peer-link,2196f3,0.5,m
+wr-core-sw01,dcim.interface,Et50,wr-core-sw02,dcim.interface,Et50,dac-passive,connected,MLAG peer-link,2196f3,0.5,m
+wr-core-sw01,dcim.interface,Et48,mdc-core-sw01,dcim.interface,Et14,smf-os2,connected,campus DWDM to Marston,ffeb3b,500,m
+wr-mgmt-sw01,dcim.interface,Et49,wr-core-sw01,dcim.interface,Et1,dac-passive,connected,mgmt switch uplink,2196f3,2,m
+wr-mgmt-sw02,dcim.interface,Et49,wr-core-sw01,dcim.interface,Et2,dac-passive,connected,mgmt switch uplink,2196f3,2,m
+wr-mgmt-sw03,dcim.interface,Et49,wr-core-sw01,dcim.interface,Et3,dac-passive,connected,mgmt switch uplink,2196f3,2,m
+wr-mgmt-sw04,dcim.interface,Et49,wr-core-sw01,dcim.interface,Et4,dac-passive,connected,mgmt switch uplink,2196f3,2,m
+wr-ib-spine01,dcim.interface,mgmt0,wr-mgmt-sw01,dcim.interface,Et1,cat6,connected,OOB mgmt,4caf50,3,m
+wr-ib-spine02,dcim.interface,mgmt0,wr-mgmt-sw01,dcim.interface,Et2,cat6,connected,OOB mgmt,4caf50,3,m
+wr-ib-leaf01,dcim.interface,mgmt0,wr-mgmt-sw01,dcim.interface,Et3,cat6,connected,OOB mgmt,4caf50,3,m
+wr-ib-leaf02,dcim.interface,mgmt0,wr-mgmt-sw02,dcim.interface,Et1,cat6,connected,OOB mgmt,4caf50,3,m
+wr-ib-leaf03,dcim.interface,mgmt0,wr-mgmt-sw03,dcim.interface,Et1,cat6,connected,OOB mgmt,4caf50,3,m
+wr-ib-leaf04,dcim.interface,mgmt0,wr-mgmt-sw04,dcim.interface,Et1,cat6,connected,OOB mgmt,4caf50,3,m
+wr-login-01,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et4,cat6,connected,OOB mgmt,4caf50,3,m
+wr-login-01,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et5,dac-passive,connected,25G data,000000,3,m
+wr-login-02,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et5,cat6,connected,OOB mgmt,4caf50,3,m
+wr-login-02,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et6,dac-passive,connected,25G data,000000,3,m
+wr-slurm-01,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et6,cat6,connected,OOB mgmt,4caf50,3,m
+wr-slurm-01,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et7,dac-passive,connected,25G data,000000,3,m
+wr-slurm-02,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et7,cat6,connected,OOB mgmt,4caf50,3,m
+wr-slurm-02,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et8,dac-passive,connected,25G data,000000,3,m
+wr-lustre-mds01,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et8,cat6,connected,OOB mgmt,4caf50,3,m
+wr-lustre-mds01,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et9,dac-passive,connected,25G data,000000,3,m
+wr-lustre-mds02,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et9,cat6,connected,OOB mgmt,4caf50,3,m
+wr-lustre-mds02,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et10,dac-passive,connected,25G data,000000,3,m
+wr-lustre-oss01,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et10,cat6,connected,OOB mgmt,4caf50,3,m
+wr-lustre-oss01,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et11,dac-passive,connected,25G data,000000,3,m
+wr-lustre-oss02,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et11,cat6,connected,OOB mgmt,4caf50,3,m
+wr-lustre-oss02,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et12,dac-passive,connected,25G data,000000,3,m
+wr-lustre-oss03,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et2,cat6,connected,OOB mgmt,4caf50,3,m
+wr-lustre-oss03,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et13,dac-passive,connected,25G data,000000,3,m
+wr-lustre-oss04,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et3,cat6,connected,OOB mgmt,4caf50,3,m
+wr-lustre-oss04,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et14,dac-passive,connected,25G data,000000,3,m
+wr-cn-001,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et4,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-002,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et5,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-003,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et6,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-004,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et7,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-005,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et8,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-006,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et9,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-007,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et10,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-008,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et11,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-009,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et12,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-010,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et13,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-011,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et14,cat6,connected,OOB mgmt,4caf50,3,m
+wr-cn-012,dcim.interface,iDRAC,wr-mgmt-sw02,dcim.interface,Et15,cat6,connected,OOB mgmt,4caf50,3,m
+wr-gpu-001,dcim.interface,iDRAC,wr-mgmt-sw03,dcim.interface,Et2,cat6,connected,OOB mgmt,4caf50,3,m
+wr-gpu-002,dcim.interface,iDRAC,wr-mgmt-sw03,dcim.interface,Et3,cat6,connected,OOB mgmt,4caf50,3,m
+wr-gpu-003,dcim.interface,iDRAC,wr-mgmt-sw03,dcim.interface,Et4,cat6,connected,OOB mgmt,4caf50,3,m
+wr-gpu-004,dcim.interface,iDRAC,wr-mgmt-sw04,dcim.interface,Et2,cat6,connected,OOB mgmt,4caf50,3,m
+wr-dtn-01,dcim.interface,iDRAC,wr-mgmt-sw01,dcim.interface,Et12,cat6,connected,OOB mgmt,4caf50,3,m
+wr-dtn-01,dcim.interface,eno1,wr-core-sw01,dcim.interface,Et15,aoc,connected,25G data,000000,3,m
+chem-gpu-01,dcim.interface,mgmt0,wr-mgmt-sw03,dcim.interface,Et5,cat6,connected,OOB mgmt,4caf50,3,m
+dr-patel-node01,dcim.interface,iDRAC,wr-mgmt-sw04,dcim.interface,Et3,cat6,connected,OOB mgmt,4caf50,3,m
+dr-patel-node02,dcim.interface,iDRAC,wr-mgmt-sw04,dcim.interface,Et4,cat6,connected,OOB mgmt,4caf50,3,m
+wr-ib-leaf01,dcim.interface,uplink-1,wr-ib-spine01,dcim.interface,Port1,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf01,dcim.interface,uplink-2,wr-ib-spine02,dcim.interface,Port1,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf02,dcim.interface,uplink-1,wr-ib-spine01,dcim.interface,Port2,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf02,dcim.interface,uplink-2,wr-ib-spine02,dcim.interface,Port2,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf03,dcim.interface,uplink-1,wr-ib-spine01,dcim.interface,Port3,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf03,dcim.interface,uplink-2,wr-ib-spine02,dcim.interface,Port3,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf04,dcim.interface,uplink-1,wr-ib-spine01,dcim.interface,Port4,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-ib-leaf04,dcim.interface,uplink-2,wr-ib-spine02,dcim.interface,Port4,aoc,connected,leaf-spine uplink,9c27b0,10,m
+wr-login-01,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port3,dac-passive,connected,wr-login-01 HCA0,9c27b0,1.5,m
+wr-login-02,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port4,dac-passive,connected,wr-login-02 HCA0,9c27b0,1.5,m
+wr-lustre-mds01,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port5,dac-passive,connected,wr-lustre-mds01 HCA0,9c27b0,1.5,m
+wr-lustre-mds02,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port6,dac-passive,connected,wr-lustre-mds02 HCA0,9c27b0,1.5,m
+wr-lustre-oss01,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port7,dac-passive,connected,wr-lustre-oss01 HCA0,9c27b0,1.5,m
+wr-lustre-oss02,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port8,dac-passive,connected,wr-lustre-oss02 HCA0,9c27b0,1.5,m
+wr-lustre-oss03,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port3,dac-passive,connected,wr-lustre-oss03 HCA0,9c27b0,1.5,m
+wr-lustre-oss04,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port4,dac-passive,connected,wr-lustre-oss04 HCA0,9c27b0,1.5,m
+wr-cn-001,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port5,dac-passive,connected,wr-cn-001 HCA0,9c27b0,1.5,m
+wr-cn-002,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port6,dac-passive,connected,wr-cn-002 HCA0,9c27b0,1.5,m
+wr-cn-003,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port7,dac-passive,connected,wr-cn-003 HCA0,9c27b0,1.5,m
+wr-cn-004,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port8,dac-passive,connected,wr-cn-004 HCA0,9c27b0,1.5,m
+wr-cn-005,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port9,dac-passive,connected,wr-cn-005 HCA0,9c27b0,1.5,m
+wr-cn-006,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port10,dac-passive,connected,wr-cn-006 HCA0,9c27b0,1.5,m
+wr-cn-007,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port11,dac-passive,connected,wr-cn-007 HCA0,9c27b0,1.5,m
+wr-cn-008,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port12,dac-passive,connected,wr-cn-008 HCA0,9c27b0,1.5,m
+wr-cn-009,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port13,dac-passive,connected,wr-cn-009 HCA0,9c27b0,1.5,m
+wr-cn-010,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port14,dac-passive,connected,wr-cn-010 HCA0,9c27b0,1.5,m
+wr-cn-011,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port15,dac-passive,connected,wr-cn-011 HCA0,9c27b0,1.5,m
+wr-cn-012,dcim.interface,ib0,wr-ib-leaf02,dcim.interface,Port16,dac-passive,connected,wr-cn-012 HCA0,9c27b0,1.5,m
+wr-gpu-001,dcim.interface,ib0,wr-ib-leaf03,dcim.interface,Port3,dac-passive,connected,wr-gpu-001 HCA0,9c27b0,1.5,m
+wr-gpu-001,dcim.interface,ib1,wr-ib-leaf03,dcim.interface,Port4,dac-passive,connected,wr-gpu-001 HCA1,9c27b0,1.5,m
+wr-gpu-002,dcim.interface,ib0,wr-ib-leaf03,dcim.interface,Port5,dac-passive,connected,wr-gpu-002 HCA0,9c27b0,1.5,m
+wr-gpu-002,dcim.interface,ib1,wr-ib-leaf03,dcim.interface,Port6,dac-passive,connected,wr-gpu-002 HCA1,9c27b0,1.5,m
+wr-gpu-003,dcim.interface,ib0,wr-ib-leaf03,dcim.interface,Port7,dac-passive,connected,wr-gpu-003 HCA0,9c27b0,1.5,m
+wr-gpu-003,dcim.interface,ib1,wr-ib-leaf03,dcim.interface,Port8,dac-passive,connected,wr-gpu-003 HCA1,9c27b0,1.5,m
+wr-gpu-004,dcim.interface,ib0,wr-ib-leaf04,dcim.interface,Port3,dac-passive,connected,wr-gpu-004 HCA0,9c27b0,1.5,m
+wr-gpu-004,dcim.interface,ib1,wr-ib-leaf04,dcim.interface,Port4,dac-passive,connected,wr-gpu-004 HCA1,9c27b0,1.5,m
+wr-dtn-01,dcim.interface,ib0,wr-ib-leaf01,dcim.interface,Port9,dac-passive,connected,wr-dtn-01 HCA0,9c27b0,1.5,m
+chem-gpu-01,dcim.interface,ib0,wr-ib-leaf03,dcim.interface,Port9,dac-passive,connected,chem-gpu-01 HCA0,9c27b0,1.5,m
+chem-gpu-01,dcim.interface,ib1,wr-ib-leaf03,dcim.interface,Port10,dac-passive,connected,chem-gpu-01 HCA1,9c27b0,1.5,m
+dr-patel-node01,dcim.interface,ib0,wr-ib-leaf04,dcim.interface,Port5,dac-passive,connected,dr-patel-node01 HCA0,9c27b0,1.5,m
+dr-patel-node02,dcim.interface,ib0,wr-ib-leaf04,dcim.interface,Port6,dac-passive,connected,dr-patel-node02 HCA0,9c27b0,1.5,m

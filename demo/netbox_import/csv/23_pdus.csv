@@ -1,0 +1,15 @@
+name,model,role,site,location,rack,feed,inlet_type,c13_outlets,c19_outlets
+MDC-A1-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,Marston Data Center,Marston Machine Room,MDC-A1,MDC-A1-FEED-A,nema-l6-30p,24,6
+MDC-A1-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,Marston Data Center,Marston Machine Room,MDC-A1,MDC-A1-FEED-B,nema-l6-30p,24,6
+MDC-A2-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,Marston Data Center,Marston Machine Room,MDC-A2,MDC-A2-FEED-A,nema-l6-30p,24,6
+MDC-A2-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,Marston Data Center,Marston Machine Room,MDC-A2,MDC-A2-FEED-B,nema-l6-30p,24,6
+MDC-B1-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,Marston Data Center,Marston Machine Room,MDC-B1,MDC-B1-FEED-A,nema-l6-30p,24,6
+MDC-B1-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,Marston Data Center,Marston Machine Room,MDC-B1,MDC-B1-FEED-B,nema-l6-30p,24,6
+WRDC-H1-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,WRDC-H1-FEED-A,nema-l6-30p,24,6
+WRDC-H1-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H1,WRDC-H1-FEED-B,nema-l6-30p,24,6
+WRDC-H2-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H2,WRDC-H2-FEED-A,nema-l6-30p,24,6
+WRDC-H2-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H2,WRDC-H2-FEED-B,nema-l6-30p,24,6
+WRDC-H3-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H3,WRDC-H3-FEED-A,iec-60309-3p-e-6h,24,6
+WRDC-H3-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H3,WRDC-H3-FEED-B,iec-60309-3p-e-6h,24,6
+WRDC-H4-PDU-A,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H4,WRDC-H4-FEED-A,nema-l6-30p,24,6
+WRDC-H4-PDU-B,Rack PDU 0U 24xC13 6xC19,PDU,West Ridge Data Center,West Ridge Data Hall,WRDC-H4,WRDC-H4-FEED-B,nema-l6-30p,24,6

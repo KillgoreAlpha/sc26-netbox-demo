@@ -1,0 +1,7 @@
+vid,name,status
+10,mdc-ipmi,active
+20,mdc-srv,active
+40,wr-infra,active
+50,wr-compute,active
+99,wr-bmc,active
+200,science-dmz,active

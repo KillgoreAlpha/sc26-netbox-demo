@@ -1,0 +1,12 @@
+prefix,status,vlan,description
+10.64.0.0/24,active,20,MDC server mgmt / prod
+10.64.10.0/24,active,10,MDC IPMI / iDRAC (isolated)
+10.72.1.0/24,active,40,"WRDC HPC infra - login, scheduler, filesystem"
+10.72.2.0/23,active,50,WRDC compute - CPU + GPU + condo nodes
+10.72.20.0/24,active,99,WRDC IPMI / BMC
+172.16.0.0/22,active,,InfiniBand IPoIB fabric (not routed)
+192.0.2.0/24,active,200,"Science DMZ - Globus DTN, login public, perfSONAR"
+198.51.100.0/31,active,,WAN link WRRN-MDC-10G-0417 (WRRN BGP peering)
+203.0.113.0/31,active,,WAN link CFN-MDC-10G-0392 (CFN BGP peering)
+198.51.100.2/31,active,,WAN link WRRN-WRDC-100G-0733 (WRRN BGP peering)
+203.0.113.2/31,active,,WAN link LTN-WRDC-10G-1180 (LTN BGP peering)

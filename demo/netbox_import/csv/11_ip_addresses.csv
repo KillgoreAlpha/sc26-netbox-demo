@@ -1,0 +1,135 @@
+address,status,dns_name,description,device,interface,is_primary
+10.64.0.10/24,active,mdc-border-fw01.rcc.blackwood.edu,management,mdc-border-fw01,mgmt0,true
+192.0.2.2/24,active,mdc-border-fw01.dmz.blackwood.edu,Science DMZ,mdc-border-fw01,eth1,false
+10.64.0.11/24,active,mdc-border-fw02.rcc.blackwood.edu,management,mdc-border-fw02,mgmt0,true
+192.0.2.3/24,active,mdc-border-fw02.dmz.blackwood.edu,Science DMZ,mdc-border-fw02,eth1,false
+10.64.0.12/24,active,mdc-core-sw01.rcc.blackwood.edu,management,mdc-core-sw01,mgmt0,true
+10.64.0.13/24,active,mdc-core-sw02.rcc.blackwood.edu,management,mdc-core-sw02,mgmt0,true
+10.64.0.14/24,active,mdc-oob-sw01.rcc.blackwood.edu,management,mdc-oob-sw01,mgmt0,true
+10.64.0.15/24,active,mdc-dns01.rcc.blackwood.edu,management,mdc-dns01,mgmt0,true
+10.64.10.15/24,active,mdc-dns01-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-dns01,iDRAC,false
+10.64.0.16/24,active,mdc-dns02.rcc.blackwood.edu,management,mdc-dns02,mgmt0,true
+10.64.10.16/24,active,mdc-dns02-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-dns02,iDRAC,false
+10.64.0.17/24,active,mdc-vmhost-01.rcc.blackwood.edu,management,mdc-vmhost-01,mgmt0,true
+10.64.10.17/24,active,mdc-vmhost-01-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-vmhost-01,iDRAC,false
+10.64.0.18/24,active,mdc-vmhost-02.rcc.blackwood.edu,management,mdc-vmhost-02,mgmt0,true
+10.64.10.18/24,active,mdc-vmhost-02-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-vmhost-02,iDRAC,false
+10.64.0.19/24,active,mdc-vmhost-03.rcc.blackwood.edu,management,mdc-vmhost-03,mgmt0,true
+10.64.10.19/24,active,mdc-vmhost-03-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-vmhost-03,iDRAC,false
+10.64.0.20/24,active,mdc-vmhost-04.rcc.blackwood.edu,management,mdc-vmhost-04,mgmt0,true
+10.64.10.20/24,active,mdc-vmhost-04-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-vmhost-04,iDRAC,false
+10.64.0.21/24,active,mdc-vmstor01.rcc.blackwood.edu,management,mdc-vmstor01,mgmt0,true
+10.64.10.21/24,active,mdc-vmstor01-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-vmstor01,iDRAC,false
+10.64.0.22/24,active,mdc-backup01.rcc.blackwood.edu,management,mdc-backup01,mgmt0,true
+10.64.10.22/24,active,mdc-backup01-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-backup01,iDRAC,false
+10.64.0.23/24,active,hpcstor2.rcc.blackwood.edu,management,hpcstor2,mgmt0,true
+10.64.0.24/24,active,mdc-globus-dtn-legacy.rcc.blackwood.edu,management,mdc-globus-dtn-legacy,mgmt0,true
+10.64.10.24/24,active,mdc-globus-dtn-legacy-bmc.rcc.blackwood.edu,BMC / iDRAC,mdc-globus-dtn-legacy,iDRAC,false
+192.0.2.20/24,active,dtn-legacy.hpc.blackwood.edu,Science DMZ,mdc-globus-dtn-legacy,eno1,false
+10.72.1.10/24,active,wr-core-sw01.rcc.blackwood.edu,management,wr-core-sw01,mgmt0,true
+10.72.1.11/24,active,wr-core-sw02.rcc.blackwood.edu,management,wr-core-sw02,mgmt0,true
+10.72.1.12/24,active,wr-mgmt-sw01.rcc.blackwood.edu,management,wr-mgmt-sw01,mgmt0,true
+10.72.20.12/24,active,wr-mgmt-sw01-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-mgmt-sw01,iDRAC,false
+10.72.1.13/24,active,wr-mgmt-sw02.rcc.blackwood.edu,management,wr-mgmt-sw02,mgmt0,true
+10.72.20.13/24,active,wr-mgmt-sw02-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-mgmt-sw02,iDRAC,false
+10.72.1.14/24,active,wr-mgmt-sw03.rcc.blackwood.edu,management,wr-mgmt-sw03,mgmt0,true
+10.72.20.14/24,active,wr-mgmt-sw03-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-mgmt-sw03,iDRAC,false
+10.72.1.15/24,active,wr-mgmt-sw04.rcc.blackwood.edu,management,wr-mgmt-sw04,mgmt0,true
+10.72.20.15/24,active,wr-mgmt-sw04-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-mgmt-sw04,iDRAC,false
+10.72.1.16/24,active,wr-ib-spine01.rcc.blackwood.edu,management,wr-ib-spine01,mgmt0,true
+10.72.1.17/24,active,wr-ib-spine02.rcc.blackwood.edu,management,wr-ib-spine02,mgmt0,true
+10.72.1.18/24,active,wr-ib-leaf01.rcc.blackwood.edu,management,wr-ib-leaf01,mgmt0,true
+10.72.1.19/24,active,wr-ib-leaf02.rcc.blackwood.edu,management,wr-ib-leaf02,mgmt0,true
+10.72.1.20/24,active,wr-ib-leaf03.rcc.blackwood.edu,management,wr-ib-leaf03,mgmt0,true
+10.72.1.21/24,active,wr-ib-leaf04.rcc.blackwood.edu,management,wr-ib-leaf04,mgmt0,true
+10.72.1.22/24,active,wr-login-01.rcc.blackwood.edu,management,wr-login-01,mgmt0,true
+10.72.20.22/24,active,wr-login-01-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-login-01,iDRAC,false
+172.16.0.10/22,active,,IPoIB,wr-login-01,ib0,false
+192.0.2.30/24,active,login01.hpc.blackwood.edu,Science DMZ,wr-login-01,eno1,false
+10.72.1.23/24,active,wr-login-02.rcc.blackwood.edu,management,wr-login-02,mgmt0,true
+10.72.20.23/24,active,wr-login-02-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-login-02,iDRAC,false
+172.16.0.11/22,active,,IPoIB,wr-login-02,ib0,false
+192.0.2.31/24,active,login02.hpc.blackwood.edu,Science DMZ,wr-login-02,eno1,false
+10.72.1.24/24,active,wr-slurm-01.rcc.blackwood.edu,management,wr-slurm-01,mgmt0,true
+10.72.20.24/24,active,wr-slurm-01-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-slurm-01,iDRAC,false
+10.72.1.25/24,active,wr-slurm-02.rcc.blackwood.edu,management,wr-slurm-02,mgmt0,true
+10.72.20.25/24,active,wr-slurm-02-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-slurm-02,iDRAC,false
+10.72.1.26/24,active,wr-lustre-mds01.rcc.blackwood.edu,management,wr-lustre-mds01,mgmt0,true
+10.72.20.26/24,active,wr-lustre-mds01-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-lustre-mds01,iDRAC,false
+172.16.0.12/22,active,,IPoIB,wr-lustre-mds01,ib0,false
+10.72.1.27/24,active,wr-lustre-mds02.rcc.blackwood.edu,management,wr-lustre-mds02,mgmt0,true
+10.72.20.27/24,active,wr-lustre-mds02-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-lustre-mds02,iDRAC,false
+172.16.0.13/22,active,,IPoIB,wr-lustre-mds02,ib0,false
+10.72.1.28/24,active,wr-lustre-oss01.rcc.blackwood.edu,management,wr-lustre-oss01,mgmt0,true
+10.72.20.28/24,active,wr-lustre-oss01-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-lustre-oss01,iDRAC,false
+172.16.0.14/22,active,,IPoIB,wr-lustre-oss01,ib0,false
+10.72.1.29/24,active,wr-lustre-oss02.rcc.blackwood.edu,management,wr-lustre-oss02,mgmt0,true
+10.72.20.29/24,active,wr-lustre-oss02-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-lustre-oss02,iDRAC,false
+172.16.0.15/22,active,,IPoIB,wr-lustre-oss02,ib0,false
+10.72.1.30/24,active,wr-lustre-oss03.rcc.blackwood.edu,management,wr-lustre-oss03,mgmt0,true
+10.72.20.30/24,active,wr-lustre-oss03-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-lustre-oss03,iDRAC,false
+172.16.0.16/22,active,,IPoIB,wr-lustre-oss03,ib0,false
+10.72.1.31/24,active,wr-lustre-oss04.rcc.blackwood.edu,management,wr-lustre-oss04,mgmt0,true
+10.72.20.31/24,active,wr-lustre-oss04-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-lustre-oss04,iDRAC,false
+172.16.0.17/22,active,,IPoIB,wr-lustre-oss04,ib0,false
+10.72.2.1/23,active,wr-cn-001.rcc.blackwood.edu,management,wr-cn-001,mgmt0,true
+10.72.20.101/24,active,wr-cn-001-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-001,iDRAC,false
+172.16.0.19/22,active,,IPoIB,wr-cn-001,ib0,false
+10.72.2.2/23,active,wr-cn-002.rcc.blackwood.edu,management,wr-cn-002,mgmt0,true
+10.72.20.102/24,active,wr-cn-002-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-002,iDRAC,false
+172.16.0.20/22,active,,IPoIB,wr-cn-002,ib0,false
+10.72.2.3/23,active,wr-cn-003.rcc.blackwood.edu,management,wr-cn-003,mgmt0,true
+10.72.20.103/24,active,wr-cn-003-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-003,iDRAC,false
+172.16.0.21/22,active,,IPoIB,wr-cn-003,ib0,false
+10.72.2.4/23,active,wr-cn-004.rcc.blackwood.edu,management,wr-cn-004,mgmt0,true
+10.72.20.104/24,active,wr-cn-004-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-004,iDRAC,false
+172.16.0.22/22,active,,IPoIB,wr-cn-004,ib0,false
+10.72.2.5/23,active,wr-cn-005.rcc.blackwood.edu,management,wr-cn-005,mgmt0,true
+10.72.20.105/24,active,wr-cn-005-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-005,iDRAC,false
+172.16.0.23/22,active,,IPoIB,wr-cn-005,ib0,false
+10.72.2.6/23,active,wr-cn-006.rcc.blackwood.edu,management,wr-cn-006,mgmt0,true
+10.72.20.106/24,active,wr-cn-006-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-006,iDRAC,false
+172.16.0.24/22,active,,IPoIB,wr-cn-006,ib0,false
+10.72.2.7/23,active,wr-cn-007.rcc.blackwood.edu,management,wr-cn-007,mgmt0,true
+10.72.20.107/24,active,wr-cn-007-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-007,iDRAC,false
+172.16.0.25/22,active,,IPoIB,wr-cn-007,ib0,false
+10.72.2.8/23,active,wr-cn-008.rcc.blackwood.edu,management,wr-cn-008,mgmt0,true
+10.72.20.108/24,active,wr-cn-008-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-008,iDRAC,false
+172.16.0.26/22,active,,IPoIB,wr-cn-008,ib0,false
+10.72.2.9/23,active,wr-cn-009.rcc.blackwood.edu,management,wr-cn-009,mgmt0,true
+10.72.20.109/24,active,wr-cn-009-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-009,iDRAC,false
+172.16.0.27/22,active,,IPoIB,wr-cn-009,ib0,false
+10.72.2.10/23,active,wr-cn-010.rcc.blackwood.edu,management,wr-cn-010,mgmt0,true
+10.72.20.110/24,active,wr-cn-010-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-010,iDRAC,false
+172.16.0.28/22,active,,IPoIB,wr-cn-010,ib0,false
+10.72.2.11/23,active,wr-cn-011.rcc.blackwood.edu,management,wr-cn-011,mgmt0,true
+10.72.20.111/24,active,wr-cn-011-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-011,iDRAC,false
+172.16.0.29/22,active,,IPoIB,wr-cn-011,ib0,false
+10.72.2.12/23,active,wr-cn-012.rcc.blackwood.edu,management,wr-cn-012,mgmt0,true
+10.72.20.112/24,active,wr-cn-012-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-cn-012,iDRAC,false
+172.16.0.30/22,active,,IPoIB,wr-cn-012,ib0,false
+10.72.2.13/23,active,wr-gpu-001.rcc.blackwood.edu,management,wr-gpu-001,mgmt0,true
+10.72.20.113/24,active,wr-gpu-001-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-gpu-001,iDRAC,false
+172.16.0.31/22,active,,IPoIB,wr-gpu-001,ib0,false
+10.72.2.14/23,active,wr-gpu-002.rcc.blackwood.edu,management,wr-gpu-002,mgmt0,true
+10.72.20.114/24,active,wr-gpu-002-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-gpu-002,iDRAC,false
+172.16.0.32/22,active,,IPoIB,wr-gpu-002,ib0,false
+10.72.2.15/23,active,wr-gpu-003.rcc.blackwood.edu,management,wr-gpu-003,mgmt0,true
+10.72.20.115/24,active,wr-gpu-003-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-gpu-003,iDRAC,false
+172.16.0.33/22,active,,IPoIB,wr-gpu-003,ib0,false
+10.72.2.16/23,active,wr-gpu-004.rcc.blackwood.edu,management,wr-gpu-004,mgmt0,true
+10.72.20.116/24,active,wr-gpu-004-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-gpu-004,iDRAC,false
+172.16.0.34/22,active,,IPoIB,wr-gpu-004,ib0,false
+10.72.1.32/24,active,wr-dtn-01.rcc.blackwood.edu,management,wr-dtn-01,mgmt0,true
+10.72.20.32/24,active,wr-dtn-01-bmc.rcc.blackwood.edu,BMC / iDRAC,wr-dtn-01,iDRAC,false
+172.16.0.18/22,active,,IPoIB,wr-dtn-01,ib0,false
+192.0.2.40/24,active,dtn.hpc.blackwood.edu,Science DMZ,wr-dtn-01,eno1,false
+10.72.2.17/23,active,chem-gpu-01.rcc.blackwood.edu,management,chem-gpu-01,mgmt0,true
+10.72.20.117/24,active,chem-gpu-01-bmc.rcc.blackwood.edu,BMC / iDRAC,chem-gpu-01,iDRAC,false
+172.16.0.35/22,active,,IPoIB,chem-gpu-01,ib0,false
+10.72.2.18/23,active,dr-patel-node01.rcc.blackwood.edu,management,dr-patel-node01,mgmt0,true
+10.72.20.118/24,active,dr-patel-node01-bmc.rcc.blackwood.edu,BMC / iDRAC,dr-patel-node01,iDRAC,false
+172.16.0.36/22,active,,IPoIB,dr-patel-node01,ib0,false
+10.72.2.19/23,active,dr-patel-node02.rcc.blackwood.edu,management,dr-patel-node02,mgmt0,true
+10.72.20.119/24,active,dr-patel-node02-bmc.rcc.blackwood.edu,BMC / iDRAC,dr-patel-node02,iDRAC,false
+172.16.0.37/22,active,,IPoIB,dr-patel-node02,ib0,false

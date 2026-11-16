@@ -1,0 +1,22 @@
+name,slug,color,vm_role
+Backup Server,backup-server,795548,false
+Compute Node (CPU),compute-node-cpu,607d8b,false
+Compute Node (GPU),compute-node-gpu,e91e63,false
+Condo Node (CPU),condo-node-cpu,455a64,false
+Condo Node (GPU),condo-node-gpu,ad1457,false
+Core Switch,core-switch,2196f3,false
+DNS/DHCP,dns-dhcp,009688,false
+Data Transfer Node,data-transfer-node,00bcd4,false
+Firewall,firewall,f44336,false
+InfiniBand Leaf,infiniband-leaf,5c6bc0,false
+InfiniBand Spine,infiniband-spine,3f51b5,false
+Legacy NAS,legacy-nas,9e9e9e,false
+Login Node,login-node,8bc34a,false
+Lustre MDS,lustre-mds,ffc107,false
+Lustre OSS,lustre-oss,ffb300,false
+Mgmt Switch,mgmt-switch,03a9f4,false
+OOB/Console Switch,oob-console-switch,9e9e9e,false
+SAN/Disk Array,san-disk-array,ff9800,false
+Scheduler,scheduler,cddc39,false
+VM Hypervisor,vm-hypervisor,4caf50,false
+PDU,pdu,d32f2f,false

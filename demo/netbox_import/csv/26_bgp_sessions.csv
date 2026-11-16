@@ -1,0 +1,5 @@
+name,device,site,local_address,remote_address,local_asn,remote_asn,status,description
+WRRN-MDC-10G-0417 eBGP,mdc-border-fw01,Marston Data Center,198.51.100.1/31,198.51.100.0/31,64500,64501,active,eBGP to WRRN AS64501 over WRRN-MDC-10G-0417
+CFN-MDC-10G-0392 eBGP,mdc-border-fw02,Marston Data Center,203.0.113.1/31,203.0.113.0/31,64500,64502,active,eBGP to CFN AS64502 over CFN-MDC-10G-0392
+WRRN-WRDC-100G-0733 eBGP,wr-core-sw01,West Ridge Data Center,198.51.100.3/31,198.51.100.2/31,64500,64501,active,eBGP to WRRN AS64501 over WRRN-WRDC-100G-0733
+LTN-WRDC-10G-1180 eBGP,wr-core-sw02,West Ridge Data Center,203.0.113.3/31,203.0.113.2/31,64500,64503,active,eBGP to LTN AS64503 over LTN-WRDC-10G-1180
