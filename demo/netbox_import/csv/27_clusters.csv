@@ -1,0 +1,2 @@
+name,type,site,status,description
+mdc-vsphere01,VMware vSphere,Marston Data Center,active,Marston production vSphere cluster (vmhost-03 pending removal)

@@ -26,7 +26,7 @@ from rcc_model import (D, RACKS, PLACE, IPPLAN, SUBNETS, VLANS, ib_hosts,
                         eth_rows, ib_rows, LOCAL_ASN, ANNOUNCED, PROVIDERS,
                         CIRCUIT_TYPES, TAGS, CIRCUITS,
                         pwr_rows, POWER_W, POWER_PANELS, PDUS, FEEDS, PDU_MODEL,
-                        PDU_C13, PDU_C19)
+                        PDU_C13, PDU_C19, CLUSTER_TYPES, CLUSTERS, VM_ROLES, VMS)
 
 CSV_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "netbox_import", "csv")
 os.makedirs(CSV_DIR, exist_ok=True)
@@ -130,7 +130,8 @@ write_csv(2, "device_types",
 roles = sorted({d["role"] for d in D.values()})
 write_csv(3, "device_roles", ["name", "slug", "color", "vm_role"],
           [[r, slug(r), ROLE_COLOR.get(r, "9e9e9e"), "false"] for r in roles]
-          + [["PDU", "pdu", "d32f2f", "false"]])
+          + [["PDU", "pdu", "d32f2f", "false"]]
+          + [[n, sl, c, "true"] for n, sl, c in VM_ROLES])
 
 # ---------------------------------------------------------------------------
 # 04 sites / 05 locations / 06 racks
@@ -412,6 +413,20 @@ write_csv(26, "bgp_sessions",
           ["name", "device", "site", "local_address", "remote_address", "local_asn",
            "remote_asn", "status", "description"], bgp_rows)
 
+# 27-29  virtualization: clusters, VMs, VM interfaces (+ their IPs)
+write_csv(27, "clusters", ["name", "type", "site", "status", "description"],
+          [[c["name"], c["type"], SITES[c["site"]]["name"], "active", c["description"]]
+           for c in CLUSTERS])
+write_csv(28, "virtual_machines",
+          ["name", "cluster", "device", "role", "status", "vcpus", "memory", "disk",
+           "description"],
+          [[v["name"], CLUSTERS[0]["name"], v["host"], v["role"], v["status"].lower(),
+            v["vcpus"], v["memory_mb"], v["disk_gb"],
+            f"{v['notes']} (owner: {v['owner']})"] for v in VMS])
+write_csv(29, "vm_interfaces",
+          ["virtual_machine", "name", "address", "dns_name", "is_primary"],
+          [[v["name"], "eth0", v["ip"], v["dns"], "true"] for v in VMS])
+
 # ---------------------------------------------------------------------------
 # validation
 # ---------------------------------------------------------------------------
@@ -490,6 +505,20 @@ for r in pwr_rows:
 _pdu_names = {p["name"] for p in PDUS}
 if {r[2] for r in pwr_rows} - _pdu_names:
     errs.append("power rows reference a PDU with no PDU row")
+
+# VMs: hosts exist and are not decommissioning, IPs unique and inside a prefix
+import ipaddress
+_used = {r[0] for r in ip_rows}
+for v in VMS:
+    h = D.get(v["host"])
+    if not h or h["status"] == "Decommissioning":
+        errs.append(f"vm {v['name']}: bad host {v['host']}")
+    if v["ip"] in _used:
+        errs.append(f"vm {v['name']}: IP {v['ip']} collides")
+    _used.add(v["ip"])
+    if not any(ipaddress.ip_interface(v["ip"]).ip in ipaddress.ip_network(p[0])
+               for p in pfx_rows):
+        errs.append(f"vm {v['name']}: IP {v['ip']} not in any prefix")
 
 if errs:
     print("  FAIL")

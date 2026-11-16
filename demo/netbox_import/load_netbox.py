@@ -260,6 +260,7 @@ def load(nb, dry):
     made += load_wan(L, nb, dry)
     made += load_power(L, nb, dry)
     load_bgp(L, nb, dry)
+    load_virtualization(L, nb, dry)
 
     print(f"\ndone. objects created: {L.created + made}, "
           f"already present: {L.skipped + skipped}")
@@ -480,6 +481,44 @@ def load_bgp(L, nb, dry):
         L.goc("plugins.bgp.session", {"name": r["name"]}, d)
 
 
+def load_virtualization(L, nb, dry):
+    """Cluster, VMs, VM interfaces and their IPs (27-29). Runs last: needs the hypervisors."""
+    types = {}
+    for r in rows("27_clusters.csv"):
+        t = types.get(r["type"]) or L.goc("virtualization.cluster_types", {"slug": _slug(r["type"])},
+                                         {"name": r["type"]})
+        types[r["type"]] = t
+        L.goc("virtualization.clusters", {"name": r["name"]},
+              {"type": t.id, "site": L.site(r["site"]).id, "status": r["status"],
+               "description": r["description"]})
+    # NetBox only lets a VM name a host that is a member of its cluster
+    for host, cname in sorted({(r["device"], r["cluster"]) for r in rows("28_virtual_machines.csv")}):
+        cluster = L.goc("virtualization.clusters", {"name": cname}, {})
+        dev = L.device(host)
+        if not dry and getattr(dev, "cluster", None) is None:
+            print(f"  ~ {host} joins cluster {cname}")
+            dev.update({"cluster": cluster.id})
+    vm_by_name = {}
+    for r in rows("28_virtual_machines.csv"):
+        cluster = L.goc("virtualization.clusters", {"name": r["cluster"]}, {})
+        vm_by_name[r["name"]] = L.goc(
+            "virtualization.virtual_machines", {"name": r["name"]},
+            {"cluster": cluster.id, "device": L.device(r["device"]).id,
+             "role": L.role(r["role"]).id, "status": r["status"],
+             "vcpus": float(r["vcpus"]), "memory": int(r["memory"]), "disk": int(r["disk"]),
+             "description": r["description"]})
+    for r in rows("29_vm_interfaces.csv"):
+        vm = vm_by_name[r["virtual_machine"]]
+        iface = L.goc("virtualization.interfaces",
+                      {"virtual_machine_id": vm.id, "name": r["name"]}, {})
+        ip = L.goc("ipam.ip_addresses", {"address": r["address"]},
+                   {"status": "active", "dns_name": r["dns_name"],
+                    "assigned_object_type": "virtualization.vminterface",
+                    "assigned_object_id": iface.id})
+        if b(r["is_primary"]) and not dry and not getattr(vm, "primary_ip4", None):
+            vm.update({"primary_ip4": ip.id})
+
+
 def wipe(nb, dry):
     names = {r["name"] for r in rows("07_devices.csv")}
     racks = {r["name"] for r in rows("06_racks.csv")}
@@ -498,6 +537,11 @@ def wipe(nb, dry):
         print(f"  {label}: {n} removed")
 
     names |= {r["name"] for r in rows("23_pdus.csv")}
+    # VMs first: a cluster, and a host with VMs, cannot be removed under them
+    for r in rows("28_virtual_machines.csv"):
+        kill(nb.virtualization.virtual_machines.filter(name=r["name"]), f"vm {r['name']}")
+    for r in rows("27_clusters.csv"):
+        kill(nb.virtualization.clusters.filter(name=r["name"]), f"cluster {r['name']}")
     # devices (cascades interfaces, cable terminations, IP assignments)
     for name in names:
         d = nb.dcim.devices.get(name=name)

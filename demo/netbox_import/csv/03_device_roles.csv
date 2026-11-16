@@ -20,3 +20,6 @@ SAN/Disk Array,san-disk-array,ff9800,false
 Scheduler,scheduler,cddc39,false
 VM Hypervisor,vm-hypervisor,4caf50,false
 PDU,pdu,d32f2f,false
+Infrastructure VM,infrastructure-vm,3f51b5,true
+Research Service VM,research-service-vm,009688,true
+Campus Service VM,campus-service-vm,ff9800,true

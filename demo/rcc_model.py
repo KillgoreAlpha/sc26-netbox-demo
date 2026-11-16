@@ -470,3 +470,48 @@ for _rk, _meta in RACKS.items():
                           type="primary" if _side == "A" else "redundant"))
         PDUS.append(dict(name=f"{_rk}-PDU-{_side}", rack=_rk, site=_meta["site"], side=_side,
                          feed=f"{_rk}-FEED-{_side}", inlet=_spec["conn"]))
+
+
+# ---------------------------------------------------------------------------
+# VIRTUALIZATION  (MDC only; WRDC is bare-metal HPC)
+# ---------------------------------------------------------------------------
+# One vSphere cluster on the three live hypervisors. mdc-vmhost-03 is
+# decommissioning (VMs migrated off after the PSU failure), so it hosts none.
+CLUSTER_TYPES = [("VMware vSphere", "vmware-vsphere")]
+CLUSTERS = [dict(name="mdc-vsphere01", type="VMware vSphere", site="MDC",
+                 description="Marston production vSphere cluster (vmhost-03 pending removal)")]
+VM_ROLES = [("Infrastructure VM", "infrastructure-vm", "3f51b5"),
+            ("Research Service VM", "research-service-vm", "009688"),
+            ("Campus Service VM", "campus-service-vm", "ff9800")]
+
+VMS = []   # dicts: name, host, role, vcpus, memory_mb, disk_gb, ip, dns, status, owner, notes
+
+def vm(name, host, role, vcpus, mem_gb, disk_gb, owner, notes="", status="Active", dns=None):
+    VMS.append(dict(name=name, host=host, role=role, vcpus=vcpus, memory_mb=mem_gb * 1024,
+                    disk_gb=disk_gb, owner=owner, notes=notes, status=status,
+                    dns=dns or f"{name}.rcc.blackwood.edu"))
+
+vm("mdc-ldap01",      "mdc-vmhost-01", "Infrastructure VM", 2, 8,  60,  "RCC ops", "directory (primary)")
+vm("mdc-ldap02",      "mdc-vmhost-02", "Infrastructure VM", 2, 8,  60,  "RCC ops", "directory (replica)")
+vm("mdc-monitor01",   "mdc-vmhost-01", "Infrastructure VM", 4, 16, 500, "RCC ops", "Prometheus + Grafana")
+vm("mdc-syslog01",    "mdc-vmhost-02", "Infrastructure VM", 4, 16, 1000, "RCC ops", "central syslog")
+vm("mdc-ansible01",   "mdc-vmhost-04", "Infrastructure VM", 2, 8,  100, "RCC ops", "config management")
+vm("mdc-netbox01",    "mdc-vmhost-04", "Infrastructure VM", 4, 16, 200, "RCC ops", "DCIM and IPAM")
+vm("mdc-ntp01",       "mdc-vmhost-01", "Infrastructure VM", 1, 2,  20,  "Network engineering", "stratum 2")
+vm("mdc-jump01",      "mdc-vmhost-02", "Infrastructure VM", 2, 4,  40,  "RCC ops", "admin bastion")
+vm("mdc-gitlab01",    "mdc-vmhost-04", "Research Service VM", 8, 32, 800, "RCC ops", "campus GitLab for research groups")
+vm("mdc-jupyterhub01","mdc-vmhost-01", "Research Service VM", 16, 64, 500, "RCC ops", "teaching JupyterHub")
+vm("mdc-rstudio01",   "mdc-vmhost-02", "Research Service VM", 8, 64, 300, "RCC ops", "RStudio Server")
+vm("mdc-redcap01",    "mdc-vmhost-04", "Research Service VM", 4, 16, 250, "Dr. Maria Okafor", "REDCap survey platform")
+vm("mdc-omero01",     "mdc-vmhost-01", "Research Service VM", 8, 32, 2000, "Dr. Rekha Alvarez", "microscopy image store")
+vm("mdc-galaxy01",    "mdc-vmhost-02", "Research Service VM", 8, 32, 1500, "Dr. Amit Patel", "bioinformatics workflows")
+vm("mdc-web01",       "mdc-vmhost-04", "Campus Service VM", 4, 8,  100, "RCC ops", "rcc.blackwood.edu")
+vm("mdc-wiki01",      "mdc-vmhost-01", "Campus Service VM", 2, 8,  80,  "RCC ops", "RCC docs wiki")
+vm("mdc-tickets01",   "mdc-vmhost-02", "Campus Service VM", 4, 16, 150, "RCC ops", "helpdesk")
+vm("mdc-license01",   "mdc-vmhost-04", "Campus Service VM", 2, 4,  40,  "RCC ops", "FlexLM license server")
+vm("mdc-oldlab-web",  "mdc-vmhost-01", "Campus Service VM", 2, 4,  60,  "Dr. Amit Patel",
+   "legacy lab site, owner asked to retire", status="Offline")
+vm("mdc-test01",      "mdc-vmhost-02", "Infrastructure VM", 2, 4,  40,  "RCC ops", "staging", status="Staged")
+
+for _i, _v in enumerate(VMS, start=101):
+    _v["ip"] = f"10.64.0.{_i}/24"

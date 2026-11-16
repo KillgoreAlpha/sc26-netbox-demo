@@ -50,6 +50,8 @@ def ref(v):
 def classes():
     return {
         "bgp-sessions":      ("/api/plugins/bgp/session/", "name", col("26_bgp_sessions.csv", "name"), True),
+        "virtual-machines":  ("/api/virtualization/virtual-machines/", "name", col("28_virtual_machines.csv", "name"), False),
+        "clusters":          ("/api/virtualization/clusters/", "name", col("27_clusters.csv", "name"), False),
         "devices":           ("/api/dcim/devices/", "name", col("07_devices.csv", "name") | col("23_pdus.csv", "name"), False),
         "power-feeds":       ("/api/dcim/power-feeds/", "name", col("22_power_feeds.csv", "name"), False),
         "power-panels":      ("/api/dcim/power-panels/", "name", col("21_power_panels.csv", "name"), False),
@@ -58,7 +60,8 @@ def classes():
         "providers":         ("/api/circuits/providers/", "slug", col("13_providers.csv", "slug"), False),
         "asns":              ("/api/ipam/asns/", "asn", {int(x) for x in col("16_asns.csv", "asn")}, False),
         "ip-addresses":      ("/api/ipam/ip-addresses/", "address",
-                              col("11_ip_addresses.csv", "address") | col("20_wan_ip_addresses.csv", "address"), False),
+                              col("11_ip_addresses.csv", "address") | col("20_wan_ip_addresses.csv", "address")
+                              | col("29_vm_interfaces.csv", "address"), False),
         "prefixes":          ("/api/ipam/prefixes/", "prefix", col("09_prefixes.csv", "prefix"), False),
         "vlans":             ("/api/ipam/vlans/", "vid", {int(x) for x in col("08_vlans.csv", "vid")}, False),
         "floorplans":        (GEOM + "/floorplans/", "name", FLOORPLAN_NAMES, True),
@@ -77,7 +80,7 @@ def classes():
     }
 
 
-ORDER = ["bgp-sessions", "devices", "power-feeds", "power-panels", "circuits", "provider-networks",
+ORDER = ["bgp-sessions", "virtual-machines", "clusters", "devices", "power-feeds", "power-panels", "circuits", "provider-networks",
          "providers", "asns", "ip-addresses", "prefixes", "vlans", "floorplans", "racks",
          "rack-types", "locations", "sites"]
 SHARED = ["device-types", "manufacturers", "device-roles", "circuit-types", "rirs", "tags",

@@ -22,7 +22,7 @@ from openpyxl.styles import Font, PatternFill
 
 from rcc_model import (D, SURPLUS, RACKS, PLACE, IPPLAN, ib_hosts,
                        RACK_IB_LEAF, eth_rows, ib_rows, con_rows, pwr_rows,
-                       CIRCUITS, PROVIDERS, LOCAL_ASN, ANNOUNCED, FEEDS, PDUS, POWER_PANELS)
+                       CIRCUITS, PROVIDERS, LOCAL_ASN, ANNOUNCED, FEEDS, PDUS, POWER_PANELS, VMS)
 
 random.seed(1975)  # deterministic output
 
@@ -168,6 +168,29 @@ ws.append(["mdc-vmhost-03", "Dell", "PowerEdge R740", "VM Hypervisor", "Decommis
 style_header(ws, 7)
 autosize(ws)
 
+# VM inventory: hand-kept by RCC ops from the vSphere client, so units and names drift
+vm_rnd = random.Random(44)   # own stream: leaves every other sheet byte-identical
+ws = wb.create_sheet("VM inventory")
+ws.append(["VM name", "Host", "Function", "vCPU", "RAM", "Disk", "IP", "Owner", "Status", "Notes"])
+def _host(h):
+    return vm_rnd.choice([h, h, h.replace("mdc-", ""), h.upper()])
+def _ram(mb):
+    gb = mb // 1024
+    return vm_rnd.choice([f"{gb} GB", f"{gb}G", str(gb), f"{mb} MB"])
+def _disk(gb):
+    return vm_rnd.choice([f"{gb} GB", f"{gb}G", f"{gb/1000:g} TB" if gb >= 1000 else f"{gb} GB"])
+for v in VMS:
+    ws.append([v["name"] + ("  " if vm_rnd.random() < 0.1 else ""), _host(v["host"]), v["role"],
+               v["vcpus"], _ram(v["memory_mb"]), _disk(v["disk_gb"]),
+               vm_rnd.choice([v["ip"].split("/")[0], v["ip"].split("/")[0], v["ip"].replace("/", " /")]),
+               v["owner"] if vm_rnd.random() > 0.15 else "",
+               {"Active": "up", "Offline": "powered off", "Staged": "test"}[v["status"]],
+               v["notes"] if vm_rnd.random() > 0.2 else ""])
+ws.append(list(ws[3][i].value for i in range(10)))    # planted duplicate row
+ws.append(["mdc-jira01", "?", "campus svc", "", "", "", "", "", "", "retired? cannot find in vCenter"])
+style_header(ws, 10)
+autosize(ws)
+
 # ReadMe
 ws = wb.create_sheet("ReadMe")
 for row in [
@@ -183,6 +206,7 @@ for row in [
     [" - Condo (lab-owned) nodes are in here for tracking but billed separately - see chargeback sheet."],
     [" - 'expired' in Warranty End = we checked and it lapsed, exact date unknown."],
     [" - Serial numbers pulled from a mix of iDRAC, packing slips, and label photos. Some are wrong."],
+    [" - VM inventory tab copied from the vSphere client by hand; sizes and IPs may be stale."],
 ]:
     ws.append(row)
 ws["A1"].font = Font(bold=True, size=13)

@@ -174,6 +174,8 @@ def main():
 
     ips = {r["address"]: r for r in rows("11_ip_addresses.csv")}
     ips.update({r["address"]: r for r in rows("20_wan_ip_addresses.csv")})
+    ips.update({r["address"]: {"device": r["virtual_machine"], "interface": r["name"],
+                               "status": "active"} for r in rows("29_vm_interfaces.csv")})
     nb_ips = {x["address"]: x for x in fetch("/api/ipam/ip-addresses/")}
     diffs = []
     for k, v in ips.items():
@@ -181,13 +183,34 @@ def main():
         if not x:
             continue
         ao = x.get("assigned_object") or {}
-        have = (nested(ao, "device", "name") or "", ao.get("name") or "")
+        have = (nested(ao, "device", "name") or nested(ao, "virtual_machine", "name") or "",
+                ao.get("name") or "")
         want = (v.get("device", ""), v.get("interface", ""))
         if have != want:
             diffs.append(f"{k}: assigned to {have} != {want}")
         if val(x.get("status")) != v["status"]:
             diffs.append(f"{k}: status {val(x.get('status'))!r} != {v['status']!r}")
     report("IP addresses", set(ips), set(nb_ips), diffs)
+
+    # --- virtualization: clusters and VMs ---------------------------------------------------
+    report("clusters", {r["name"] for r in rows("27_clusters.csv")},
+           {x["name"] for x in fetch("/api/virtualization/clusters/")})
+    vms = {r["name"]: r for r in rows("28_virtual_machines.csv")}
+    nb_vms = {x["name"]: x for x in fetch("/api/virtualization/virtual-machines/")}
+    diffs = []
+    for k, v in vms.items():
+        x = nb_vms.get(k)
+        if not x:
+            continue
+        checks = [("host", nested(x, "device", "name"), v["device"]),
+                  ("cluster", nested(x, "cluster", "name"), v["cluster"]),
+                  ("role", nested(x, "role", "name"), v["role"]),
+                  ("status", val(x.get("status")), v["status"]),
+                  ("vcpus", num(x.get("vcpus")), num(v["vcpus"])),
+                  ("memory", num(x.get("memory")), num(v["memory"])),
+                  ("disk", num(x.get("disk")), num(v["disk"]))]
+        diffs += [f"{k}: {f} {have!r} != {want!r}" for f, have, want in checks if have != want]
+    report("virtual machines", set(vms), set(nb_vms), diffs)
 
     # --- circuits, ASNs, providers ---------------------------------------------------------
     circ = {r["cid"]: r for r in rows("17_circuits.csv")}

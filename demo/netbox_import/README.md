@@ -29,6 +29,7 @@ csv/
   05a_rack_types.csv      (rack types, NetBox 4.3+; loaded before 06_racks)
   12a_tags .. 20_wan_ip_addresses.csv   WAN / BGP (see below)
   21_power_panels .. 25_power_cables.csv   power (see below)
+  27_clusters, 28_virtual_machines, 29_vm_interfaces.csv   virtualization (see below)
   26_bgp_sessions.csv     eBGP sessions; needs the netbox-bgp plugin, skipped without it
   03_device_roles.csv     10_interfaces.csv
   04_sites.csv            11_ip_addresses.csv
@@ -192,6 +193,22 @@ its power panel. Full load on one `WRDC-H3` feed (18.4 kW) exceeds the 80% conti
 netbox-bgp plugin (`/api/plugins/bgp/session/`): device, site, the local and remote /31 addresses
 and the local and remote ASNs. It runs after the WAN section and skips with a message if the
 plugin API is unreachable. The `bgp-peer` IP tags and custom fields stay as they were.
+
+## Virtual machines
+
+`27_clusters.csv`, `28_virtual_machines.csv` and `29_vm_interfaces.csv`, loaded last by `load_virtualization()`:
+
+- One cluster, `mdc-vsphere01` (type VMware vSphere, site Marston), on the three live hypervisors
+  `mdc-vmhost-01`, `-02` and `-04`. `mdc-vmhost-03` is decommissioning and hosts nothing, which
+  matches its "VMs migrated off" note.
+- 20 VMs with vCPU, memory (MB) and disk (GB), in three VM roles (Infrastructure, Research Service,
+  Campus Service). One is `offline` (a legacy lab site its owner wants retired) and one `staged`.
+  The owning group is in the description.
+- One `eth0` per VM, with an IP in `10.64.0.0/24` (`.101` to `.120`, clear of the `.10`-`.24`
+  infrastructure addresses), set as the VM's primary IP.
+- Cluster types and VM roles are shared objects: teardown removes them only with `--include shared`.
+  VMs and the cluster are in the default teardown, and `verify_netbox.py` checks them.
+- Model data is in `rcc_model.py` (`CLUSTERS`, `VMS`); the messy spreadsheets are unchanged.
 
 ## Checking NetBox against the plan
 
