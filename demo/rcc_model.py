@@ -53,11 +53,11 @@ dev("mdc-globus-dtn-legacy", "MDC", "Data Transfer Node", "Supermicro", "SuperSe
 dev("wr-core-sw01", "WRDC", "Core Switch", "Arista", "DCS-7280SR3-48YC8-F", 1)
 dev("wr-core-sw02", "WRDC", "Core Switch", "Arista", "DCS-7280SR3-48YC8-F", 1)
 for i in range(1, 5):
-    dev(f"wr-mgmt-sw0{i}", "WRDC", "Mgmt Switch", "Dell", "PowerConnect N2048", 1)
-dev("wr-ib-spine01", "WRDC", "InfiniBand Spine", "NVIDIA", "QM8700 (HDR200)", 1)
-dev("wr-ib-spine02", "WRDC", "InfiniBand Spine", "NVIDIA", "QM8700 (HDR200)", 1)
+    dev(f"wr-mgmt-sw0{i}", "WRDC", "Mgmt Switch", "Dell", "PowerSwitch N2048", 1)
+dev("wr-ib-spine01", "WRDC", "InfiniBand Spine", "NVIDIA", "QM8700", 1)
+dev("wr-ib-spine02", "WRDC", "InfiniBand Spine", "NVIDIA", "QM8700", 1)
 for i in range(1, 5):
-    dev(f"wr-ib-leaf0{i}", "WRDC", "InfiniBand Leaf", "NVIDIA", "QM8700 (HDR200)", 1)
+    dev(f"wr-ib-leaf0{i}", "WRDC", "InfiniBand Leaf", "NVIDIA", "QM8700", 1)
 dev("wr-login-01", "WRDC", "Login Node", "Dell", "PowerEdge R650", 1)
 dev("wr-login-02", "WRDC", "Login Node", "Dell", "PowerEdge R650", 1)
 dev("wr-slurm-01", "WRDC", "Scheduler", "Dell", "PowerEdge R640", 1, notes="Slurm controller (primary)")
@@ -301,7 +301,7 @@ RACK_IB_LEAF = {"WRDC-H1": "wr-ib-leaf01", "WRDC-H2": "wr-ib-leaf02",
 POWER_W = {
     "PA-3260": (450, 330), "DCS-7050SX3-48YC8-F": (460, 200),
     "DCS-7280SR3-48YC8-F": (750, 260), "Catalyst 2960-48TT-L": (150, 60),
-    "PowerConnect N2048": (200, 70), "QM8700 (HDR200)": (550, 290),
+    "PowerSwitch N2048": (200, 70), "QM8700": (550, 290),
     "PowerEdge R640": (750, 300), "PowerEdge R650": (800, 350),
     "PowerEdge R6525": (1100, 450), "PowerEdge R740": (1100, 400),
     "PowerEdge R740xd": (1100, 450), "PowerEdge C6420": (1100, 400),

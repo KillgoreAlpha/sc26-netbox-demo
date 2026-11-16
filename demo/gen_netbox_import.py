@@ -112,9 +112,7 @@ def _first_role(mfr, model):
     return ""
 
 # slugs that differ from the derived one so NDX catalog imports update our type in place
-SLUG_OVERRIDE = {("NVIDIA", "QM8700 (HDR200)"): "nvidia-qm8700",
-                 ("Cisco", "Catalyst 2960-48TT-L"): "cisco-ws-c2960-48tt-l",
-                 ("Dell", "PowerConnect N2048"): "dell-powerswitch-n2048",  # catalog: PowerSwitch N2048
+SLUG_OVERRIDE = {("Cisco", "Catalyst 2960-48TT-L"): "cisco-ws-c2960-48tt-l",
                  ("Supermicro", "SuperServer 6018R-MT"): "supermicro-sys-6018r-mt",
                  ("Supermicro", "GPU SuperServer SYS-422GA-NRT"): "supermicro-sys-422ga-nrt"}
 

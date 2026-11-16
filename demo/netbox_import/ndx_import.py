@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Align our device types with the NDX catalog and import the matches.
 
-Dry run by default. For each row of csv/02_device_types.csv:
+Dry run by default (--status is read-only). For each row of csv/02_device_types.csv:
   - if the type exists in NetBox under a different slug, plan a slug rename
     to the CSV slug (so the NDX import updates it in place, no duplicate);
+  - if the model name differs from the CSV (NDX skips those), plan a model fix;
   - if the catalog has that exact slug, plan an NDX import for it.
 Types the catalog does not have are left alone.
 
@@ -71,6 +72,8 @@ def main():
     ap.add_argument("--token", default=os.environ.get("NETBOX_TOKEN"))
     ap.add_argument("--go", action="store_true", help="actually rename and import")
     ap.add_argument("--only", help="limit to one slug")
+    ap.add_argument("--status", action="store_true",
+                    help="read-only: component counts and part number for each of our device types")
     ap.add_argument("--repoint", action="store_true",
                     help="move existing devices onto the device type named in 07_devices.csv")
     a = ap.parse_args()
@@ -88,8 +91,22 @@ def main():
 
     if a.repoint:
         return repoint(s, root, a.go)
+    if a.status:
+        print(f"{'slug':38} {'if':>4} {'pwr':>4} {'con':>4}  part_number")
+        for row in csv.DictReader(open(os.path.join(HERE, "csv", "02_device_types.csv"))):
+            t = get("/api/dcim/device-types/", slug=row["slug"])
+            if not t:
+                print(f"{row['slug']:38} not in NetBox")
+                continue
+            t = t[0]
+            print(f"{row['slug']:38} {t.get('interface_template_count', 0):>4} "
+                  f"{t.get('power_port_template_count', 0):>4} "
+                  f"{t.get('console_port_template_count', 0):>4}  {t.get('part_number') or '-'}")
+        recs = get("/api/plugins/ndx/import-records/", limit=200)
+        print(f"\nNDX import records: {len(recs)}")
+        return
 
-    renames, imports, skipped = [], [], []
+    renames, imports, skipped, shown, models = [], [], [], [], []
     for row in csv.DictReader(open(os.path.join(HERE, "csv", "02_device_types.csv"))):
         model, slug, mfr = row["model"], row["slug"], row["manufacturer"]
         if a.only and slug != a.only:
@@ -97,6 +114,11 @@ def main():
         # existing NetBox type (match on manufacturer + model)
         have = [t for t in get("/api/dcim/device-types/", model=model)
                 if (t.get("manufacturer") or {}).get("name") == mfr]
+        # NDX skips a type whose slug matches but whose model name differs, so align the model
+        same_slug = [t for t in get("/api/dcim/device-types/", slug=slug)
+                     if (t.get("manufacturer") or {}).get("name") == mfr]
+        if same_slug and same_slug[0]["model"] != model:
+            models.append((same_slug[0]["id"], same_slug[0]["model"], model))
         # catalog: is our slug there?
         cat = []
         for q in (re.sub(r"\s*\(.*?\)", "", model).strip(), slug, model.split()[-1]):
@@ -109,16 +131,28 @@ def main():
             continue
         if have and have[0]["slug"] != slug:
             renames.append((have[0]["id"], have[0]["slug"], slug, f"{mfr} {model}"))
-        imports.append((slug, f"{mfr} {model}"))
+        # NDX ids are "vendor_slug/slug", not the bare slug. Prefer the catalog's own vendor field.
+        c = cat[0]
+        vendor = next((c[k] for k in ("vendor_slug", "vendor") if isinstance(c.get(k), str) and c[k]),
+                      re.sub(r"[^a-z0-9]+", "-", mfr.lower()).strip("-"))
+        if not shown:
+            print("catalog entry fields:", ", ".join(sorted(c)))
+            shown.append(1)
+        imports.append((f"{vendor}/{slug}", f"{mfr} {model}"))
 
     print("slug renames in NetBox:")
     for _id, old, new, name in renames:
         print(f"  {name}: {old} -> {new}")
     if not renames:
         print("  none")
+    print("model name fixes in NetBox:")
+    for _id, old, new in models:
+        print(f"  {old!r} -> {new!r}")
+    if not models:
+        print("  none")
     print("NDX imports:")
-    for slug, name in imports:
-        print(f"  {name} [{slug}]")
+    for ndx_id, name in imports:
+        print(f"  {name} [{ndx_id}]")
     print("left alone (not in catalog under our slug):")
     for n in skipped:
         print(f"  {n}")
@@ -126,13 +160,19 @@ def main():
     if not a.go:
         print("\ndry run: nothing changed. Add --go to apply.")
         return
+    for _id, old, new in models:
+        r = s.patch(f"{root}/api/dcim/device-types/{_id}/", json={"model": new})
+        print(f"model {old!r} -> {new!r}: {r.status_code}" + ("" if r.ok else f" {r.text[:300]}"))
     for _id, old, new, name in renames:
         r = s.patch(f"{root}/api/dcim/device-types/{_id}/", json={"slug": new})
         print(f"rename {name}: {r.status_code}" + ("" if r.ok else f" {r.text[:300]}"))
-    if imports:
-        # assumption: ndx_ids are catalog slugs; a 400 below names the problem if not
-        r = s.post(root + "/api/plugins/ndx/import/", json={"ndx_ids": [i[0] for i in imports]})
-        print(f"import: {r.status_code} {r.text[:800]}")
+    # up to 5 ids import synchronously and return per-id results; more than 5 is a silent
+    # background job, so send them five at a time
+    for k in range(0, len(imports), 5):
+        batch = imports[k:k + 5]
+        r = s.post(root + "/api/plugins/ndx/import/", json={"ndx_ids": [i[0] for i in batch]})
+        print(f"import {', '.join(i[0] for i in batch)}: {r.status_code}")
+        print(f"    {r.text[:1500]}")
 
 
 if __name__ == "__main__":
